@@ -1,24 +1,35 @@
 import React from "react";
 import Link from "next/link";
 
-import { RiPlantFill } from "react-icons/ri";
 import { FaInfoCircle } from "react-icons/fa";
-
+import { IoIosNotifications } from "react-icons/io";
+import { RiPlantFill } from "react-icons/ri";
 const Sidebar = () => {
   return (
-    <div className="bg-gray-200 h-[90vh] w-72 text-center">
-      <Link
-        href="/dashboard"
-        aria-current="true"
-        className="flex justify-center items-center w-full cursor-pointer rounded-lg p-4 transition duration-500 hover:bg-neutral-100 hover:text-neutral-500 focus:bg-neutral-100 focus:text-neutral-500 focus:ring-0 dark:hover:bg-neutral-600 dark:hover:text-neutral-200 dark:focus:bg-neutral-600 dark:focus:text-neutral-200"
-      >
-        <FaInfoCircle className="w-10 h-10 text-green-400" />
+    <div className="bg-gray-600 w-72 text-white flex flex-col items-center py-6 space-y-6 shadow-lg">
+      <Link href="/dashboard" className="group w-full">
+        <div className="flex flex-col items-center w-full cursor-pointer p-4 transition duration-300 hover:bg-gray-700 rounded-lg">
+          <FaInfoCircle className="w-10 h-10 text-green-400 group-hover:text-green-300" />
+          <span className="mt-2 text-sm font-semibold group-hover:text-gray-200">
+            Información
+          </span>
+        </div>
       </Link>
-      <Link
-        href="/dashboard/crop"
-        className="flex justify-center items-center w-full cursor-pointer rounded-lg p-4 transition duration-500 hover:bg-neutral-100 hover:text-neutral-500 focus:bg-neutral-100 focus:text-neutral-500 focus:ring-0 dark:hover:bg-neutral-600 dark:hover:text-neutral-200 dark:focus:bg-neutral-600 dark:focus:text-neutral-200"
-      >
-        <RiPlantFill className="w-10 h-10 text-green-400" />
+      <Link href="/dashboard/crop" className="group w-full">
+        <div className="flex flex-col items-center w-full cursor-pointer p-4 transition duration-300 hover:bg-gray-700 rounded-lg">
+          <RiPlantFill className="w-10 h-10 text-green-400 group-hover:text-green-300" />
+          <span className="mt-2 text-sm font-semibold group-hover:text-gray-200">
+            Cultivos
+          </span>
+        </div>
+      </Link>
+      <Link href="/dashboard/notification" className="group w-full">
+        <div className="flex flex-col items-center w-full cursor-pointer p-4 transition duration-300 hover:bg-gray-700 rounded-lg">
+          <IoIosNotifications className="w-10 h-10 text-green-400 group-hover:text-green-300" />
+          <span className="mt-2 text-sm font-semibold group-hover:text-gray-200">
+            Notificaciones
+          </span>
+        </div>
       </Link>
     </div>
   );

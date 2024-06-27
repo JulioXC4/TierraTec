@@ -90,7 +90,6 @@ export const createUser = async (req: Request, res: Response) => {
 
 export const getUsers = async (req: Request, res: Response) => {
     try {
-
         res.status(200).json(users);
     } catch (error) {
         console.error(error);

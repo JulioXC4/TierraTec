@@ -1,17 +1,26 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { FaTimes } from "react-icons/fa";
 
 const Login = ({ setShowModal }: any) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
-      <div className="bg-white rounded-lg p-8 max-w-sm w-full h-auto sm:h-[55vh] flex flex-col justify-center items-center">
-        <img
-          src="/images/logo.png"
-          alt="Logo TierraTec"
-          className="h-20 w-20 rounded-full object-cover transition-transform transform hover:scale-105 m-4"
-        />
-        <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
+      <div className="bg-white rounded-lg p-8 max-w-sm w-full sm:max-w-md h-auto sm:h-[70vh]">
+        <div className="flex justify-between items-center mb-4">
+          <img
+            src="/images/logo.png"
+            alt="Logo TierraTec"
+            className="h-16 w-16 rounded-full object-cover mr-4"
+          />
+          <button
+            onClick={() => setShowModal(false)}
+            className="text-gray-500 hover:text-gray-700"
+          >
+            <FaTimes className="text-lg" />
+          </button>
+        </div>
+        <h2 className="text-2xl font-bold mb-4 text-center">Iniciar Sesión</h2>
         <form>
           <div className="mb-4">
             <label
@@ -43,10 +52,10 @@ const Login = ({ setShowModal }: any) => {
           </div>
           <div className="flex items-center justify-between">
             <Link
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               href="/dashboard"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              Enviar
+              Ingresar
             </Link>
             <button
               type="button"

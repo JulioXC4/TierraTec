@@ -1,55 +1,54 @@
 "use client";
 
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Login from "../Login/Login";
 import { usePathname } from "next/navigation";
+import { FaHome, FaInfoCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [showModal, setShowModal] = useState(false);
+
   return (
-    <nav className="fixed bg-green-600 w-full h-24 flex justify-around items-center shadow-md z-20">
-      <div className="w-1/3flex items-center">
-        <Link className="text-black text-xl font-bold" href="/">
+    <nav className="fixed top-0 left-0 right-0 bg-green-600 h-24 flex justify-around items-center shadow-md z-20 px-6">
+      <div className="flex items-center">
+        <Link href="/" className="flex items-center">
           <img
             src="/images/logo.png"
             alt="Logo TierraTec"
-            className="h-20 w-20 rounded-full object-cover transition-transform transform hover:scale-105"
+            className="h-16 w-16 rounded-full object-cover mr-4"
           />
+          <span className="text-white text-xl font-bold">TierraTec</span>
         </Link>
       </div>
-      <div className="w-2/3 flex justify-end items-center">
-        <div className="flex justify-evenly items-center w-5/6">
-          <Link
-            href="/"
-            className={`py-2 rounded-3xl text-center text-3xl hover:text-white w-0 hover:w-6 transition-all duration-500 ${
-              pathname === "/"
-                ? "text-white py-2 rounded-3xl text-center text-3xl"
-                : "text-black"
-            }`}
-          >
-            Inicio
-          </Link>
-          <Link
-            href="/about"
-            className={`py-2 rounded-3xl text-center text-3xl hover:text-white w-0 hover:w-6 transition-all duration-500 ${
-              pathname === "/about"
-                ? "text-white py-2 rounded-3xl text-center text-3xl"
-                : "text-black"
-            }`}
-          >
-            Objetivo
-          </Link>
-          <button
-            className="py-2 px-4 rounded text-center text-3xl bg-blue-600 text-white "
-            onClick={() => setShowModal(true)}
-          >
-            Login
-          </button>
-        </div>
-        {showModal && <Login setShowModal={setShowModal} />}
+      <div className="flex items-center space-x-6">
+        <Link
+          href="/"
+          className={`text-white flex items-center space-x-1 text-xl font-medium hover:text-gray-100 transition-colors duration-300 ${
+            pathname === "/" ? "font-bold" : ""
+          }`}
+        >
+          <FaHome className="text-lg" />
+          <span>Inicio</span>
+        </Link>
+        <Link
+          href="/about"
+          className={`text-white flex items-center space-x-1 text-xl font-medium hover:text-gray-100 transition-colors duration-300 ${
+            pathname === "/about" ? "font-bold" : ""
+          }`}
+        >
+          <FaInfoCircle className="text-lg" />
+          <span>Objetivo</span>
+        </Link>
+        <button
+          className="py-2 px-4 rounded text-center text-xl bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300"
+          onClick={() => setShowModal(true)}
+        >
+          Login
+        </button>
       </div>
+      {showModal && <Login setShowModal={setShowModal} />}
     </nav>
   );
 };
